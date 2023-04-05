@@ -9,20 +9,20 @@ public class UserRegistration {
     public static void main(String[] args) {
         Scanner scanner =new Scanner(System.in);
         UserRegistration newName = new UserRegistration();
-        System.out.println("Enter First Name,Last Name, Email, Mobile No,Password1,password2 : ");
+        System.out.println("Enter First Name,Last Name, Email, Mobile No,Password : ");
 
         String firstname = scanner.nextLine();
         String lastname = scanner.nextLine();
         String email = scanner.nextLine();
         String mobileNo = scanner.nextLine();
         String password = scanner.nextLine();
-        String password2 = scanner.nextLine();
         newName.checkFirstName(firstname);
         newName.checkLastName(lastname);
         newName.checkEmail(email);
         newName.checkMobileNumber(mobileNo);
         newName.checkPasswordRule(password);
-        newName.checkPasswordRule2(password2);
+        newName.checkPasswordRule2(password);
+        newName.checkPasswordRule3(password);
     }
     //UC1:
     public void checkFirstName(String firstname){
@@ -86,7 +86,7 @@ public class UserRegistration {
     }
     //UC5:
     private void checkPasswordRule(String password) {
-        String regex = "^[a-zA-Z]{8,}";
+        String regex = "^[a-z]{8,}$";
 
         Pattern patternChecker = Pattern.compile(regex);
         Matcher matchChecker = patternChecker.matcher(password);
@@ -99,17 +99,31 @@ public class UserRegistration {
         }
     }
     //UC6:
-    private void checkPasswordRule2(String password2) {
+    private void checkPasswordRule2(String password) {
         String regex = "^[A-Za-z]{8,}$";
 
         Pattern patternChecker = Pattern.compile(regex);
-        Matcher matchChecker = patternChecker.matcher(password2);
+        Matcher matchChecker = patternChecker.matcher(password);
 
         //checking valid or not
         if (matchChecker.matches()) {
             System.out.println("Password For Rule2 is valid");
         } else {
             System.out.println("Password For Rule2 is Invalid");
+        }
+    }
+    //UC7:
+    private void checkPasswordRule3(String password) {
+        String regex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}";
+
+        Pattern patternChecker = Pattern.compile(regex);
+        Matcher matchChecker = patternChecker.matcher(password);
+
+        //checking valid or not
+        if (matchChecker.matches()) {
+            System.out.println("Password For Rule3 is valid");
+        } else {
+            System.out.println("Password For Rule3 is Invalid");
         }
     }
 }
