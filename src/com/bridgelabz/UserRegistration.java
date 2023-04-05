@@ -48,5 +48,20 @@ public class UserRegistration {
             System.out.println("Last Name is Invalid");
         }
     }
+    //UC3:
+    private void checkEmail(String email) {
+        String regex = "^[a-z]*[.][a-z0-9]*(@[a-z]{5}[.][a-z]{3})$";
+
+        Pattern patternChecker = Pattern.compile(regex);
+        Matcher matchChecker = patternChecker.matcher(email);
+
+        //checking valid or not
+        if(matchChecker.matches()){
+            System.out.println("Email Id is valid");
+        }
+        else{
+            System.out.println("Email is Invalid");
+        }
+    }
 
 }
