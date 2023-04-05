@@ -18,9 +18,9 @@ public class UserRegistration {
         String password = scanner.nextLine();
         newName.checkFirstName(firstname);
         newName.checkLastName(lastname);
-        newName.checkLastName(email);
-        newName.checkLastName(mobileNo);
-        newName.checkLastName(password);
+        newName.checkEmail(email);
+        newName.checkMobileNumber(mobileNo);
+        newName.checkPasswordRule(password);
     }
     //UC1:
     public void checkFirstName(String firstname){
