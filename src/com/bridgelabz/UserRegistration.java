@@ -9,14 +9,16 @@ public class UserRegistration {
     public static void main(String[] args) {
         Scanner scanner =new Scanner(System.in);
         UserRegistration newName = new UserRegistration();
-        System.out.println("Enter First Name,Last Name And Email : ");
+        System.out.println("Enter First Name,Last Name, Email, Mobile No : ");
 
         String firstname = scanner.nextLine();
         String lastname = scanner.nextLine();
         String email = scanner.nextLine();
+        String mobileNo = scanner.nextLine();
         newName.checkFirstName(firstname);
         newName.checkLastName(lastname);
         newName.checkLastName(email);
+        newName.checkLastName(mobileNo);
     }
     //UC1:
     public void checkFirstName(String firstname){
@@ -63,5 +65,18 @@ public class UserRegistration {
             System.out.println("Email is Invalid");
         }
     }
+    private void checkMobileNumber(String mobileNo) {
+        String regex = "^[0-9]{2,}[0-9]{10,}$";
 
+        Pattern patternChecker = Pattern.compile(regex);
+        Matcher matchChecker = patternChecker.matcher(mobileNo);
+
+        //checking valid or not
+        if(matchChecker.matches()){
+            System.out.println("Mobile Number is valid");
+        }
+        else{
+            System.out.println("Mobile Number is Invalid");
+        }
+    }
 }
