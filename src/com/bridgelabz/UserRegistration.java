@@ -65,6 +65,7 @@ public class UserRegistration {
             System.out.println("Email is Invalid");
         }
     }
+    //UC4:
     private void checkMobileNumber(String mobileNo) {
         String regex = "^[0-9]{2,}[0-9]{10,}$";
 
