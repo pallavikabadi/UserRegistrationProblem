@@ -5,18 +5,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    //UC1:
+
     public static void main(String[] args) {
         Scanner scanner =new Scanner(System.in);
         UserRegistration newName = new UserRegistration();
-        System.out.println("Enter First Name : ");
-        System.out.println("Enter Last Name : ");
+        System.out.println("Enter First Name,Last Name And Email : ");
+
         String firstname = scanner.nextLine();
         String lastname = scanner.nextLine();
+        String email = scanner.nextLine();
         newName.checkFirstName(firstname);
         newName.checkLastName(lastname);
+        newName.checkLastName(email);
     }
-    //UC2:
+    //UC1:
     public void checkFirstName(String firstname){
         String regex = "^[A-Z][a-z]{3,}";
 
@@ -31,7 +33,7 @@ public class UserRegistration {
             System.out.println("First Name is Invalid");
         }
     }
-
+    //UC2:
     private void checkLastName(String lastname) {
         String regex = "^[A-Z][a-z]{3,}";
 
