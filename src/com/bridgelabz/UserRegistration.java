@@ -125,6 +125,21 @@ public class UserRegistration {
         } else {
             System.out.println("Password For Rule3 is Invalid");
         }
+
+    }
+    //UC8:
+    private void checkPasswordRule4(String password) {
+        String regex = "^(?=[a-z]*[A-Z])(?=.*[0-9])(?=.*[\\W_]).{8,}$";
+
+        Pattern patternChecker = Pattern.compile(regex);
+        Matcher matchChecker = patternChecker.matcher(password);
+
+        //checking valid or not
+        if (matchChecker.matches()) {
+            System.out.println("Password For Rule4 is valid");
+        } else {
+            System.out.println("Password For Rule4 is Invalid");
+        }
     }
 }
 
