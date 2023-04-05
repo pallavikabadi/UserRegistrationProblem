@@ -16,7 +16,7 @@ public class UserRegistration {
         String email = scanner.nextLine();
         newName.checkFirstName(firstname);
         newName.checkLastName(lastname);
-        newName.checkLastName(email);
+        newName.checkEmail(email);
     }
     //UC1:
     public void checkFirstName(String firstname){
