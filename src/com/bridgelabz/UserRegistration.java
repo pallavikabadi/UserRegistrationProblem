@@ -9,16 +9,18 @@ public class UserRegistration {
     public static void main(String[] args) {
         Scanner scanner =new Scanner(System.in);
         UserRegistration newName = new UserRegistration();
-        System.out.println("Enter First Name,Last Name, Email, Mobile No : ");
+        System.out.println("Enter First Name,Last Name, Email, Mobile No,Password : ");
 
         String firstname = scanner.nextLine();
         String lastname = scanner.nextLine();
         String email = scanner.nextLine();
         String mobileNo = scanner.nextLine();
+        String password = scanner.nextLine();
         newName.checkFirstName(firstname);
         newName.checkLastName(lastname);
         newName.checkLastName(email);
         newName.checkLastName(mobileNo);
+        newName.checkLastName(password);
     }
     //UC1:
     public void checkFirstName(String firstname){
@@ -80,4 +82,19 @@ public class UserRegistration {
             System.out.println("Mobile Number is Invalid");
         }
     }
+    //UC5:
+    private void checkPasswordRule(String password) {
+        String regex = "^[a-zA-Z]{8,}";
+
+        Pattern patternChecker = Pattern.compile(regex);
+        Matcher matchChecker = patternChecker.matcher(password);
+
+        //checking valid or not
+        if (matchChecker.matches()) {
+            System.out.println("Password is valid");
+        } else {
+            System.out.println("Password is Invalid");
+        }
+    }
 }
+
